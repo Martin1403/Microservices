@@ -1,0 +1,26 @@
+version: "3.8"
+
+volumes:
+  puppyapp:
+  frontendapp:
+
+services:
+  puppy-service:
+    container_name: puppy-service-c
+    build:
+      context: ./puppy
+    ports:
+      - "5001:5001"
+    volumes:
+      - puppyapp:/puppyapp
+    restart: always
+
+  frontend-service:
+    container_name: frontend-service-c
+    build:
+      context: ./frontend
+    ports:
+      - "5000:5000"
+    volumes:
+      - frontendapp:/frontendapp
+    restart: always
