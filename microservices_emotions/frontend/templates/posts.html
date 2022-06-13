@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div align="center">
+            <h1>All {{user.username}} posts.</h1>
+            <img align="center" src="static/images/{{user.profile_image}}" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    {% for post in blog_posts %}
+        <h3> <a methods="POST" href="{{ url_for('posts.update_post', post=post, user=user) }}">{{post.title}}</a></h3>
+        Written By: <a href="{{ url_for('users.account') }}">{{user.username}}</a>
+        <p class="text-muted">Publish on: {{post.date}}</p>
+        <p></p>
+        <p>{{post.text}}</p>
+        {% if post.emotion == 'joy' %}
+            <h4>🙂</h4>
+        {% elif post.emotion == 'sadness' %}
+            <h4>😒</h4>
+        {% elif post.emotion == 'anger' %}
+            <h4>😤</h4>
+        {% elif post.emotion == 'surprise' %}
+            <h4>😏</h4>
+        {% elif post.emotion == 'fear' %}
+            <h4>😨</h4>
+        {% elif post.emotion == 'love' %}
+            <h4>😍</h4>
+        {% else %}
+            <h4>😯</h4>
+        {%endif%}
+        <p></p>
+        {% endfor %}
+</div>
+
+    {% endblock %}

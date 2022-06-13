@@ -1,0 +1,37 @@
+version: "3.8"
+
+volumes:
+  postsapp:
+  emotionsapp:
+  frontendapp:
+
+services:
+  posts-service:
+    container_name: posts-service-c
+    build:
+      context: ./posts
+    ports:
+      - "5001:5001"
+    volumes:
+      - postsapp:/postsapp
+    restart: always
+
+  emotions-service:
+    container_name: emotions-service-c
+    build:
+      context: ./emotions
+    ports:
+      - "5002:5002"
+    volumes:
+      - emotionsapp:/emotionsapp
+    restart: always
+
+  frontend-service:
+    container_name: frontend-service-c
+    build:
+      context: ./frontend
+    ports:
+      - "5000:5000"
+    volumes:
+      - frontendapp:/frontendapp
+    restart: always

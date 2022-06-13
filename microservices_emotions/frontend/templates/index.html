@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div align="center">
+            <h1>Home Page.</h1>
+            {% if current_user.is_authenticated %}
+            <p></p>
+            <h3>Hello {{current_user.id}}!</h3>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+<div class="container" align="center">
+    <img src="static/images/blog.png">
+</div>
+
+
+<div class="container">
+<footer class="bg-light text-center text-lg-start" id="footer">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+        <p>
+        List the top bloggers in your niche who inspire you with their work.
+        Put together a list of underrepresented people in your industry.
+        Share a list of things or activities that put you in a good mood.
+        Write about how to balance work and family life.
+        Talk about the best goal setting planners.
+        </p>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="jumbotron">
+      <div align="center">
+          <h1>Update post {{form.id.label}} user: {{user["username"]}}</h1>
+          <img src="static/images/{{user['profile_image']}}">
+      </div>
+  </div>
+
+  <form method="POST">
+      {{form.hidden_tag()}}
+
+      <div class="mb-3">
+          {{form.title.label(class="form-label")}}
+          {{form.title(class="form-control")}}
+          <div class="form-text">Enter a title.</div>
+          <br>
+          {{form.text.label(class="form-label")}}
+          {{form.text(class="form-control")}}
+          <div class="form-text">Enter text.</div>
+      </div>
+
+      {{form.update(class="btn btn-success")}}
+      {{form.delete(class="btn btn-danger")}}
+
+  </form>
+  </div>
+{% endblock %}
