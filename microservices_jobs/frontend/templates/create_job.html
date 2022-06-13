@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class="container">
+  <div class="bg-light p-3 rounded" align="center">
+    <h3>New Job</h3>
+    <p>Create new job.</p>
+  </div>
+<div class="container">
+  <form method="POST">
+      {{form.hidden_tag()}}
+      <p></p>
+      <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+          <span>
+          {{form.title.label(class="form-label")}}
+          {{form.title(class="form-control")}}
+          </span>
+          <br>
+          <span>
+          {{form.description.label(class="form-label")}}
+          {{form.description(class="form-control", rows=3, type="text")}}
+          </span>
+
+      </div>
+      {{form.submit(class="btn btn-primary")}}
+  </form>
+</div>
+</main>
+{% endblock %}

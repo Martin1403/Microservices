@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container" style="width: 50rem;">
+    <div class="container">
+        <h3>{{job['title'].capitalize()}}</h3>
+        <a href="{{ url_for('jobs.get_company_id', company_id=job['companyId']) }}">{{job['company']['name'].capitalize()}}</a>
+        <div class="list-group">
+              <label class="list-group-item d-flex gap-3">
+                <span class="pt-1 form-checked-content">
+                    {{job["description"].capitalize()}}
+                </span>
+              </label>
+        </div>
+    </div>
+</div>
+{% endblock %}

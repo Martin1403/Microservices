@@ -1,0 +1,37 @@
+version: "3.8"
+
+volumes:
+  jobsapp:
+  frontendapp:
+  usersapp:
+
+services:
+  jobs-service:
+    container_name: jobs-service-c
+    build:
+      context: ./jobs
+    ports:
+      - "5001:5001"
+    volumes:
+      - jobsapp:/jobsapp
+    restart: always
+
+  users-service:
+    container_name: users-service-c
+    build:
+      context: ./users
+    ports:
+      - "5002:5002"
+    volumes:
+      - usersapp:/usersapp
+    restart: always
+
+  frontend-service:
+    container_name: frontend-service-c
+    build:
+      context: ./frontend
+    ports:
+      - "5000:5000"
+    volumes:
+      - frontendapp:/frontendapp
+    restart: always

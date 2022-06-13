@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<div class="container" style="width: 50rem;">
+    <div class="container">
+        <h2>Job Board</h2>
+        <p></p>
+        <div class="list-group">
+            {% for job in jobs %}
+              <label class="list-group-item d-flex gap-3">
+                <span class="pt-1 form-checked-content">
+                  <a href="{{ url_for('jobs.get_job_id', id=job['id']) }}">JOB at {{job["company"]["name"]}}:</a> 
+                      <p>{{job['id']}} </p>
+                </span>
+              </label>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% else %}
+<main class="container">
+  <div class="jumbotron" align="center" style="background-color: #e2e2e2;">
+    <h3>Jobs Manager</h3>
+    <p>First you need to register.</p>
+  </div>
+
+
+</main>
+
+<div class="to-bottom">
+    <div class="b-example-divider"></div>
+<footer>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+    <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
+</footer>
+</div>
+{% endif %}
+{% endblock %}

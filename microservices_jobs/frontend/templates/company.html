@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container" style="width: 50rem;">
+    <div class="container">
+        <h3>{{company['name'].capitalize()}}</h3>
+        <div class="list-group">
+              <label class="list-group-item d-flex gap-3">
+                <span class="pt-1 form-checked-content">
+                    {{company["description"].capitalize()}}
+                </span>
+              </label>
+        </div>
+        <p>
+        <h5>Jobs at {{company["name"].capitalize()}}</h5>
+        </p>
+        <div class="container">
+            <div class="bg-light p-3 rounded" align="center">
+                <div class="list-group">
+                    {% for job in company["jobs"] %}
+                    <label class="list-group-item d-flex gap-3">
+                        <span class="pt-1 form-checked-content">
+                            {{job["title"].capitalize()}}
+                        </span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
