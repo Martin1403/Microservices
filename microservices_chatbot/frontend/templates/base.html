@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>PyChat</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">>
+
+
+    <!-- Bootstrap core CSS -->
+      <link href="static/home/bootstrap.min.css" rel="stylesheet">
+      <link href="static/home/cover.css" rel="stylesheet">
+
+
+  </head>
+      <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  <body class="d-flex h-100  bg-dark">
+  <div class="cover-container text-center d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="mb-auto">
+                <div>
+                    <div class="float-md-start mb-0">
+                        <img src="static/images/original.png">
+                    </div>
+                    <nav class="nav nav-masthead justify-content-center float-md-end">
+                    {% if not current_user.is_authenticated %}
+                        {% if page=="home" %}
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('core.home') }}">Home</a>
+                        <a class="nav-link" href="{{ url_for('core.login') }}">Login</a>
+                        <a class="nav-link" href="{{ url_for('core.register') }}">Register</a>
+
+                        {% elif page=="login" %}
+                        <a class="nav-link" href="{{ url_for('core.home') }}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('core.login') }}">Login</a>
+                        <a class="nav-link" href="{{ url_for('core.register') }}">Register</a>
+
+                        {% elif page=="register" %}
+                        <a class="nav-link" href="{{ url_for('core.home') }}">Home</a>
+                        <a class="nav-link" href="{{ url_for('core.login') }}">Login</a>
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('core.register') }}">Register</a>
+                        {% endif %}
+                     {% else %}
+                         {% if page=="home" %}
+                         <a class="nav-link active" aria-current="page" href="#">Home</a>
+                         <a class="nav-link" href="{{ url_for('chats.chat') }}">Chat</a>
+                         <a class="nav-link" href="{{ url_for('core.account') }}">Account</a>
+                         <a class="nav-link" href="{{ url_for('core.logout') }}">Logout</a>
+
+                         {% elif page=="chat"%}
+                        <a class="nav-link" href="{{ url_for('core.home') }}">Home</a>
+                        <a class="nav-link active" href="#">Chat</a>
+                        <a class="nav-link" href="{{ url_for('core.account') }}">Account</a>
+                        <a class="nav-link" href="{{ url_for('core.logout') }}">Logout</a>
+
+                        {% elif page=="account" %}
+                        <a class="nav-link" href="{{ url_for('core.home') }}">Home</a>
+                        <a class="nav-link" href="{{ url_for('chats.chat') }}">Chat</a>
+                        <a class="nav-link active" href="#">Account</a>
+                        <a class="nav-link" href="{{ url_for('core.logout') }}">Logout</a>
+                        {% endif %}
+                    {% endif %}
+                    <!--- ENDIF --->
+                    </nav>
+                 </div>
+             </header>
+
+              <main class="px-3">
+                  {% block content %}
+
+                  {% endblock %}
+              </main>
+
+          <footer class="mt-auto text-white-50">
+            <!---
+            <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+            --->
+            <p class="mt-5 mb-3 text-muted"><a href="{{ url_for('measurements.stats') }}" class="text-white" style="font-weight: bold; text-decoration:none;">Endpoint</a> measurements. &copy; 2021–2022</p>
+          </footer>
+        </div>
+    </body>
+</html>

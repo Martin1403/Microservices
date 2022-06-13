@@ -1,0 +1,37 @@
+version: "3.8"
+
+volumes:
+  chat:
+  frontend:
+  ai:
+
+services:
+  chat-service:
+    container_name: chat-service-c
+    build:
+      context: ./chat
+    ports:
+      - "5001:5001"
+    volumes:
+      - chat:/chat
+    restart: always
+
+  ai-service:
+    container_name: ai-service-c
+    build:
+      context: ./ai
+    ports:
+      - "5002:5002"
+    volumes:
+      - ai:/ai
+    restart: always
+
+  frontend-service:
+    container_name: frontend-service-c
+    build:
+      context: ./frontend
+    ports:
+      - "5000:5000"
+    volumes:
+      - frontend:/frontend
+    restart: always

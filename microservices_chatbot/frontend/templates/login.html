@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    color: gray;
+}
+.form-control{
+  height: 45px;
+  margin-bottom: 1px;
+  border-radius: 0px;
+  border: 2px solid gray;
+  font-size: 20px;
+  color: gray;
+}
+
+</style>
+
+
+<main class="form-signin">
+
+    <form method="POST">
+        {{form.hidden_tag()}}
+        <img class="mb-4" src="static/login/bootstrap-logo-white.svg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please Sign in</h1>
+        <div>
+            {{form.email(class="form-control", placeholder="Enter email")}}
+        </div>
+        <div>
+            {{form.password(class="form-control", placeholder="Enter password")}}
+        </div>
+        <p></p>
+        {{form.submit(class="w-100 btn btn-secondary", style="height:3rem; font-size: 20px; font-weight: bold;")}}
+    </form>
+
+
+</main>
+
+{% endblock %}

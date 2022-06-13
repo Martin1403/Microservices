@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<style>
+	.signup-form{
+		width: 400px;
+		margin: 0 auto;
+	}
+    .signup-form form{
+		color: #999;
+		border-radius: 3px;
+    	margin-top: 40px;
+    	margin-bottom: 15px;
+        background: #f2f3f7;
+        padding: 30px;
+    }
+
+.form-control{
+  height: 45px;
+  margin-bottom: 1px;
+  border-radius: 0px;
+  border: 2px solid gray;
+  font-size: 20px;
+  color: gray;
+}
+
+.custom-file-upload {
+    border: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 7px 13px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+
+
+</style>
+
+
+<div class="signup-form">
+  <form method="POST" enctype="multipart/form-data">
+      {{form.hidden_tag()}}
+      <img class="mb-4" src="static/images/{{user.get('picture')}}" alt="" width="72" height="57">
+      <h4 class="text-muted">Account for {{user.get('username')}}</h4>
+      <p></p>
+      <div  class="mb-3" align="center">
+          {{form.email(class="form-control border-0", placeholder="Email")}}
+          <br>
+          {{form.username(class="form-control border-0",  placeholder="Username")}}
+          <br>
+          {{form.password(class="form-control border-0", placeholder="Password")}}
+          <br>
+          {{form.picture(class="form-control custom-file-upload")}}
+          <br>
+          {{form.update(class="btn btn-success", style="width: 10rem; height:3rem; font-size: 20px; font-weight: bold;")}}
+          {{form.delete(class="btn btn-danger", style="width: 10rem; height:3rem; font-size: 20px; font-weight: bold;")}}
+
+      </div>
+
+  </form>
+</div>
+
+{% endblock %}

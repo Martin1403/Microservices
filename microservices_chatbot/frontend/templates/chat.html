@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block content %}
+<!------>
+
+  <style>
+
+      .form-control {
+          color: gray;
+          padding: 0;
+          font-size: 16px;
+
+      }
+      .small {
+          color: gray;
+          padding: 0;
+          font-size: 14px;
+
+      }
+      .card-header a.nav-link {
+          color: gray;
+          padding: 0;
+          font-size: 22px;
+      }
+      .card .card-text {
+          color: gray;
+          padding: 0;
+          font-size: 16px;
+          border: 2px solid light-gray;
+          border-radius: 8px;
+      }
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solo #e84118;
+        padding: 2px;
+      }
+
+      input:focus {
+          outline: 0px !important;
+          box-shadow: none !important;
+      }
+
+      .card-text {
+
+      }
+  </style>
+
+  <body>
+    <form method="POST">
+      {{form.hidden_tag()}}
+        <div class="container mt-4">
+            <div class="card mx-auto" style="max-width: 300;">
+                <!--HEADER-->
+                <div class="card-header bg-transparent">
+                    <div class="navbar navbar-expand p-0">
+
+                        <ul class="navbar-nav me-auto align-items-center">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <div class="position-relative" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solo #e84118; padding: 2px;">
+                                        <img src="static/images/{{user.get('picture')}}" class="img-fluid rounded-circle">
+
+                                        <span class="position-absolute bottom-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
+                                            <span class="visually-hidden">New alerts</span>
+                                        </span>
+                                    </div>
+
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">{{user.get('username')}}</a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav ms-auto">
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url_for('chats.reset')}}" class="nav-link">
+                                    <img src="static/images/reboot.svg">
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!--BODY-->
+                <div class="card-body p-4" style="height: 500px; overflow: auto;">
+
+                    {% for chat in data %}
+
+                    <!--- REQUEST WITH IMAGE --->
+                    <div class="d-flex align-items-baseline mb-4">
+                        <!--- IMAGE RIGHT --->
+                        <div class="position-relative avatar">
+                            <img src="static/images/{{user.get('picture')}}" class="img-fluid rounded-circle">
+
+                            <span class="position-absolute bottom-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </div>
+                        <!--- TEXT --->
+                        <div class="pe-2">
+                            <div>
+                                <div class="card card-text d-inline-block p-2 px-3 m-1">
+                                    {{chat.get('input')}}
+                                </div>
+                            </div>
+                            <!--DATE-->
+                            <div>
+                                <div class="small">
+                                    {{chat.get('input_date')}}
+                                </div>
+                            </div>
+                            <!----->
+                        </div>
+                    </div>
+
+                    <!---RESPONSE WITH IMAGE-->
+                    <div class="d-flex align-items-baseline mb-4">
+                        <!--OUTPUT TEXT-->
+                        <div class="pe-2">
+                            <div>
+                                <div class="card card-text d-inline-block p-2 px-3 m-1">
+                                    {{chat.get('output')}}
+                                </div>
+                            </div>
+                                                        <!--DATE-->
+                            <div>
+                                <div class="small">
+                                    {{chat.get('output_date')}}
+                                </div>
+                            </div>
+                            <!----->
+                        </div>
+
+                        <!---IMAGE LEFT--->
+                        <div class="position-relative avatar">
+                            <img src="static/images/ai.png" class="img-fluid rounded-circle">
+                            <span class="position-absolute bottom-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!--- END OF BODY --->
+
+                <!--FOOTER-->
+                <div class="card-footer bg-transparent position-absolute w-100 bottom-0 m-0 p-1">
+                    <div class="input-group">
+                        {{form.text(class="form-control border-0", placeholder="Write a message...", style="font-size: 18px; margin-left: 15px;")}}
+                        <div class="input-group-text bg-transparent border-0" >
+                            {{form.send(class="btn btn-light text-secondary", style="font-size: 20px;")}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </form>
+  </body>
+
+
+{% endblock %}
