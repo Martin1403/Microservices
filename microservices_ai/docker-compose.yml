@@ -1,0 +1,35 @@
+version: "3.8"
+
+volumes:
+  stt:
+  tts:
+  frontend:
+
+services:
+  stt-service:
+    container_name: stt-service-c
+    build:
+      context: ./stt
+    ports:
+      - "5001:5001"
+    volumes:
+      - stt:/stt
+    restart: always
+  tts-service:
+    container_name: tts-service-c
+    build:
+      context: ./tts
+    ports:
+      - "5002:5002"
+    volumes:
+      - tts:/tts
+    restart: always
+  frontend-service:
+    container_name: frontend-service-c
+    build:
+      context: ./frontend
+    ports:
+      - "5000:5000"
+    volumes:
+      - frontend:/frontend
+    restart: always
