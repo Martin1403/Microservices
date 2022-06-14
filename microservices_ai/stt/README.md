@@ -2,12 +2,12 @@ DeepSpeech STT API ![](static/images/logo.png)
 ==================
 ### Venv:
 ###### python3.9
-###### /stt
+###### /
 ```
-python -m venv .venv && \
-source .venv/bin/activate && \
+python -m venv stt/.venv && \
+source stt/.venv/bin/activate && \
 pip install -U pip && \
-pip install -r requirements.txt
+pip install -r stt/requirements.txt
 ```
 ### Scorer:
 ###### /stt

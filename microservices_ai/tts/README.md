@@ -2,12 +2,12 @@ Pytorch TTS API![](static/images/logo.png)
 ================
 ### Venv:
 ###### python3.9
-###### /tts
+###### /
 ```
-python -m venv .venv && \
-source .venv/bin/activate && \
+python -m venv tts/.venv && \
+source tts/.venv/bin/activate && \
 pip install -U pip && \
-pip install -r requirements.txt && \
+pip install -r tts/requirements.txt && \
 pip install torch==1.8.1+cpu torchvision==0.9.1+cpu torchaudio==0.8.1 -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html
 ```
 ### Unpack voices:
@@ -41,5 +41,6 @@ docker rmi tts --force
 **Note:** 
 ###### Help:
 - ###### / inside root directory or cd /xxx  
-###### [Links:]()
+###### [Links:]() 
+- ###### [Link](https://drive.google.com/drive/folders/10_ZNA4PxF3QtYrBBEwjAFQfnhH9E1yqY?usp=sharing) Download more voices
 - ###### [Link](https://github.com/rhasspy/larynx) GitHub link to Larynx

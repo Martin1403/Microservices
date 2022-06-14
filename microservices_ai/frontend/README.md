@@ -2,12 +2,12 @@ Frontend ![](static/images/logo.png)
 ========
 ### Venv:
 ###### python3.9
-###### /frontend
+###### /
 ```
-python -m venv .venv && \
-source .venv/bin/activate && \
+python -m venv frontend/.venv && \
+source frontend/.venv/bin/activate && \
 pip install -U pip && \
-pip install -r requirements.txt
+pip install -r frontend/requirements.txt
 ```
 ### Run:
 ###### /
@@ -26,6 +26,7 @@ docker rmi frontend --force
 **Note:** 
 ###### Help:
 - ###### / inside root directory or cd /xxx  
-###### [Links:]()
-- ###### [Link]()
+###### [Links:]()  
+- ###### [Link](https://github.com/SEPIA-Framework/sepia-web-audio) to Sepia vad audio ...
+
 

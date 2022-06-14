@@ -1,5 +1,5 @@
 import os
-
+import uuid
 import requests
 import base64
 from random import randint
@@ -9,25 +9,19 @@ from quart import (
 )
 
 blueprint = Blueprint("blueprint", __name__)
+base = os.path.abspath(os.path.dirname(__name__))
 
 
 def make_request(url, data):
     return requests.post(url=url, json={"data": data}, headers={"Content-Type": "application/json"})
 
 
-def counter(length=5):
-    """Counter etc. 0001, 0002
-    """
-    number = '0' * length + str(randint(1, 9999))
-    number = number[len(number)-length:]
-    return number
-
-
 def make_audio(data):
-    sample = f"sample_{counter()}.wav"
+
+    sample = f"{uuid.uuid4()}.wav"
     static = f"../static/samples/{sample}"
-    folder = "frontend/static/samples/"
-    samples = f"{folder}{sample}"
+    folder = os.path.join(base, "frontend/static/samples")
+    samples = os.path.join(folder, sample)
     with open(samples, mode="bx") as f:
         f.write(data)
     return static
@@ -47,7 +41,6 @@ if os.environ.get("DOCKER"):
 async def index():
 
     if request.method == "POST":
-
         data = await request.get_data()                             # WEB => WAV
         data = base64.encodebytes(data).decode('ascii')             # BYTES => STR
         response = make_request(url=url_stt, data=data)             # STR => STT

@@ -2,12 +2,12 @@ Ai API ![](static/images/logo.png)
 ======
 ### Venv:
 ###### python3.7
-###### /ai
+###### /
 ```
-python -m venv .venv && \
-source .venv/bin/activate && \
+python -m venv ai/.venv && \
+source ai/.venv/bin/activate && \
 pip install -U pip && \
-pip install -r requirements.txt
+pip install -r ai/requirements.txt
 ```
 ### Run:
 ###### /
