@@ -37,6 +37,11 @@ url_stt = "http://127.0.0.1:5001/stt"
 url_ai = "http://127.0.0.1:5002/ai"
 url_tts = "http://127.0.0.1:5003/tts"
 
+if os.environ.get("DOCKER"):
+    url_stt = "http://stt-service-c:5001/stt"
+    url_ai = "http://ai-service-c:5002/ai"
+    url_tts = "http://tts-service-c:5003/tts"
+
 
 @blueprint.route("/", methods=["GET", "POST"])
 async def index():
