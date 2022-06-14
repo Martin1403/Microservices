@@ -1,13 +1,10 @@
-Puppy Microservices
-===================
+Microservices Puppies
+=====================
+![](frontend/static/img.png)
 
-###### frontend:
-- ### /
-  ![](frontend/static/img.png)
-###### backend
-- ### /docs
-  ![](puppy/static/img2.png)
 ### Run:
 ```shell
+git clone https://github.com/Martin1403/Microservices.git 
+cd Microservices/microservices_puppy/ && \
 docker-compose up --build
 ```
