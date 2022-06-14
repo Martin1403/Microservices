@@ -2,7 +2,7 @@ from quart import Blueprint, render_template, redirect
 from quart_schema import hide_route, validate_request, validate_response
 from pydantic.dataclasses import dataclass
 
-from chat.api.actions import action_endpoint
+from ai.api.actions import action_endpoint
 
 blueprint = Blueprint("blueprint", __name__)
 
@@ -23,7 +23,7 @@ class TextOutSchema:
     data: str
 
 
-@blueprint.route("/post", methods=["POST"])
+@blueprint.route("/ai", methods=["POST"])
 @validate_request(TextInSchema)
 @validate_response(TextOutSchema)
 @action_endpoint

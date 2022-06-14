@@ -2,7 +2,7 @@ DeepSpeech STT API ![](static/images/logo.png)
 ==================
 ### Venv:
 ###### python3.9
-###### /dstt
+###### /stt
 ```
 python -m venv .venv && \
 source .venv/bin/activate && \

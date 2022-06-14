@@ -8,10 +8,10 @@ app = Quart(__name__)
 QuartSchema(app, title="Chat APP", version="0.0.1")
 
 # REGISTER BLUEPRINTS
-from chat.api.views import blueprint
+from ai.api.views import blueprint
 app.register_blueprint(blueprint)
 
 # COMMANDS
-from chat.api.commands import test_async
+from ai.api.commands import test_async
 app.cli.add_command(test_async)
 

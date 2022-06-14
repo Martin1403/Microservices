@@ -17,6 +17,6 @@ RUN 7za x tts/voices/voices.7z.001 -otts/voices/
 # Settings:
 ENV QUART_APP=$APP.app:app
 ENV QUART_ENV=development
-EXPOSE 5002
+EXPOSE 5003
 
-CMD quart run -h "0.0.0.0" -p 5002
+CMD quart run -h "0.0.0.0" -p 5003

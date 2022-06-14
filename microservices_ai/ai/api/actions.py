@@ -1,12 +1,12 @@
 from functools import wraps
 import pickle
 
-from chat.api.model import Seq2SeqModel, tf
+from ai.api.model import Seq2SeqModel, tf
 
 tf.reset_default_graph()
-word2id = pickle.load(open("chat/model/word2id.pkl", "rb"))
-id2word = pickle.load(open("chat/model/id2word.pkl", "rb"))
-args = pickle.load(open(f"chat/model/args.pkl", "rb"))
+word2id = pickle.load(open("ai/model/word2id.pkl", "rb"))
+id2word = pickle.load(open("ai/model/id2word.pkl", "rb"))
+args = pickle.load(open(f"ai/model/args.pkl", "rb"))
 
 model = Seq2SeqModel(10, word2id, id2word, args.maxlen)
 model.declare_placeholders()
@@ -18,7 +18,7 @@ model.build_decoder(args.hidden, len(word2id.keys()), word2id['^'], word2id['$']
 session = tf.compat.v1.Session()
 session.run(tf.compat.v1.global_variables_initializer())
 saver = tf.compat.v1.train.Saver()
-saver.restore(session, f"chat/model/model.ckpt")
+saver.restore(session, f"ai/model/model.ckpt")
 
 
 def action_endpoint(f):

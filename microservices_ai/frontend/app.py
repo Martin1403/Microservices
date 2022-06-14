@@ -8,6 +8,4 @@ app.config["SECRET_KEY"] = "ANOTHER ONE"
 
 # REGISTER BLUEPRINTS
 from frontend.api.views import blueprint
-from frontend.api.users.views import users
 app.register_blueprint(blueprint)
-app.register_blueprint(users)

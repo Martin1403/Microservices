@@ -1,8 +1,8 @@
-Tensorflow memory network ![](static/images/logo.png)
-=========================
+Ai API ![](static/images/logo.png)
+======
 ### Venv:
 ###### python3.7
-###### /chat
+###### /ai
 ```
 python -m venv .venv && \
 source .venv/bin/activate && \
@@ -12,28 +12,27 @@ pip install -r requirements.txt
 ### Run:
 ###### /
 ```
-export QUART_APP=chat.app:app && \
+export QUART_APP=ai.app:app && \
 export QUART_ENV=development && \
-quart run -h "127.0.0.1" -p 5003
+quart run -h "127.0.0.1" -p 5002
 ```
 ### Tests:
 ###### /
 - ###### Test async:
     ````
-    export QUART_APP=chat.app:app && \
+    export QUART_APP=ai.app:app && \
     export QUART_ENV=development && \
     quart test-async
     ````
 ### Docker:
-###### /chat
+###### /ai
 ```
-docker build -t chat . && \
-docker run -it --rm -p 5003:5003 chat && \
-docker rmi chat --force
+docker build -t ai . && \
+docker run -it --rm -p 5002:5002 ai && \
+docker rmi ai --force
 ```
 **Note:**
-Tensorflow1.1x Seq2Seq Attention with memory network (Gated/GRU)
 ###### Help:
 - ###### / inside root directory or cd /xxx  
 ###### [Links:]()
-- ###### [Link](https://github.com/Martin1403/Tensorflow1.15.x-MemoryNetwork) Train with your own data...
+- ###### [Link](https://github.com/Martin1403/Tensorflow1.15.x-MemoryNetwork), train with your own data...

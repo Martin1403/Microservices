@@ -3,9 +3,11 @@ version: "3.8"
 volumes:
   stt:
   tts:
+  ai:
   frontend:
 
 services:
+
   stt-service:
     container_name: stt-service-c
     build:
@@ -15,15 +17,27 @@ services:
     volumes:
       - stt:/stt
     restart: always
+
+  ai-service:
+    container_name: ai-service-c
+    build:
+      context: ./ai
+    ports:
+      - "5002:5002"
+    volumes:
+      - ai:/ai
+    restart: always
+
   tts-service:
     container_name: tts-service-c
     build:
       context: ./tts
     ports:
-      - "5002:5002"
+      - "5003:5003"
     volumes:
       - tts:/tts
     restart: always
+
   frontend-service:
     container_name: frontend-service-c
     build:

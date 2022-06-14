@@ -1,5 +1,5 @@
-Pytorch TTS ![](static/images/logo.png)
-===========
+Pytorch TTS API![](static/images/logo.png)
+================
 ### Venv:
 ###### python3.9
 ###### /tts
@@ -11,8 +11,9 @@ pip install -r requirements.txt && \
 pip install torch==1.8.1+cpu torchvision==0.9.1+cpu torchaudio==0.8.1 -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html
 ```
 ### Unpack voices:
+###### / 
+###### apt-get install p7zip-full
 ```
-apt-get install p7zip-full
 7za x tts/voices/voices.7z.001 -otts/voices/
 ```
 ### Run:
@@ -20,7 +21,7 @@ apt-get install p7zip-full
 ```
 export QUART_APP=tts.app:app && \
 export QUART_ENV=development && \
-quart run -h "127.0.0.1" -p 5002
+quart run -h "127.0.0.1" -p 5003
 ```
 ### Tests:
 ###### /
@@ -34,7 +35,7 @@ quart run -h "127.0.0.1" -p 5002
 ###### /tts
 ```
 docker build -t tts . && \
-docker run -it --rm -p 5002:5002 tts && \
+docker run -it --rm -p 5003:5003 tts && \
 docker rmi tts --force
 ```
 **Note:** 

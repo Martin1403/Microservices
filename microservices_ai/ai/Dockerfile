@@ -1,7 +1,7 @@
 FROM python:3.7-slim
 
 # App name
-ARG APP="chat"
+ARG APP="ai"
 
 RUN mkdir $APP
 COPY requirements.txt $APP/requirements.txt
