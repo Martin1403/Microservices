@@ -2,7 +2,7 @@ Ai Quart app
 ============
 ![](static/images/screen.png)
 ### Venv:
-###### python3.6-7
+###### python3.7
 ###### /ai
 ```shell
 python -m venv .venv && \                                                     
