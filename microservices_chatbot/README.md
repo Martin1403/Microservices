@@ -1,6 +1,6 @@
 Microservices with Quart and GraphQL
 ====================================
-![](frontend/static/images/movie.gif)
+![](frontend/static/images/screen.png)
 
 ### Run:
 ```shell
