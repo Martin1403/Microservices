@@ -9,11 +9,14 @@ source stt/.venv/bin/activate && \
 pip install -U pip && \
 pip install -r stt/requirements.txt
 ```
-### Scorer:
-###### /stt
+
+### Unpack scorer:
+###### / 
+###### apt-get install p7zip-full
 ```
-wget -O model/output_graph.scorer https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer
+7za x stt/model/archive/output_graph.scorer.7z.001 -ostt/model/
 ```
+
 ### Run:
 ###### /
 ```

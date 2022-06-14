@@ -1,4 +1,5 @@
 import json
+import sys
 import typing
 from concurrent.futures import Executor, Future
 from pathlib import Path
@@ -216,10 +217,12 @@ def get_tts_model(
         if valid_voice_dir(maybe_model_dir):
             model_dir = maybe_model_dir
             break
-
-    with open(model_dir / "phonemes.txt", "r", encoding="utf-8") as phonemes_file:
-        phoneme_to_id = phonemes2ids.load_phoneme_ids(phonemes_file)
-
+    try:
+        with open(model_dir / "phonemes.txt", "r", encoding="utf-8") as phonemes_file:
+            phoneme_to_id = phonemes2ids.load_phoneme_ids(phonemes_file)
+    except TypeError:
+        print("No voices found on directory ./voices")
+        sys.exit(1)
     config_path = model_dir / "config.json"
     with open(config_path, "r", encoding="utf-8") as config_file:
         config = json.load(config_file)
